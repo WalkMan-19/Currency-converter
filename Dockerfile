@@ -10,4 +10,6 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
+ENTRYPOINT ["bash", "entrypoint.sh"]
+
 CMD ["gunicorn", "currency_converter.wsgi", "-w", "4", "-b", "0.0.0.0:8000"]
