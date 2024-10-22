@@ -29,9 +29,6 @@ class ProfileView(RetrieveUpdateDestroyAPIView):
     serializer_class = ProfileSerializer
     permission_classes = (permissions.IsAuthenticated,)
 
-    def get_object(self):
-        return self.request.user
-
     def perform_destroy(self, instance):
         logout(self.request)
 
@@ -42,5 +39,3 @@ class UpdatePasswordView(UpdateAPIView):
 
     def get_object(self):
         return self.request.user
-
-
